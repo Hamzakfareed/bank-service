@@ -1,5 +1,9 @@
 .idea
 account-service/.idea
+account-service/target
 user-service/.idea
+user-service/target
 discovery-service/.idea
+discovery-service/target
 api-gateway/.idea
+api-gateway/target
