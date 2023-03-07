@@ -1,0 +1,39 @@
+version: '3.7'
+
+services:
+  whitebox-user-service:
+    container_name: whitebox-user-service
+    image: hamzafareed/whitebox-user-service:latest
+    restart: always
+    ports:
+      - 8061:8061
+    environment:
+      - "SPRING_PROFILES_ACTIVE=dev"
+  whitebox-account-service:
+    container_name: whitebox-account-service
+    image: hamzafareed/whitebox-account-service:latest
+    restart: always
+    ports:
+      - 8064:8064
+    environment:
+      - "SPRING_PROFILES_ACTIVE=dev"
+  whitebox-api-gateway:
+    container_name: whitebox-api-gateway
+    image: hamzafareed/whitebox-api-gateway:latest
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      - "SPRING_PROFILES_ACTIVE=dev"
+  whitebox-eureka-service:
+    container_name: whitebox-eureka
+    image: hamzafareed/whitebox-eureka:latest
+    restart: always
+    ports:
+      - 8761:8761
+    environment:
+      - "SPRING_PROFILES_ACTIVE=dev"
+networks:
+  default:
+    external:
+      name: whitebox-network
