@@ -36,5 +36,16 @@ http://localhost:8061/actuator/threaddump
 http://localhost:8061/actuator/loggers
 ```
 
+### Docker compose
+run `docker-compose up`
+
+### Create Docker Network
+docker network create --attachable -d overlay whitebox-network
+
+### Mysql
+docker run -d --name whitebox-axon-server -p 8024:8024 -p 8124:8124 --network whitebox-network --restart always axoniq/axonserver:latest
+
+### Axon Server
+
 ### Things can be done
 Adding actuator, swagger, validation for request body, security implementation
